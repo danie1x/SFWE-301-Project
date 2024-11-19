@@ -10,7 +10,7 @@ public class PharmacyStaff {
     private String workEmail;
     private String licenseNumber;
     private Date licenseExpirationDate;
-    private String role; // ex. "pharmacist", "pharmacy manager", etc.
+    private String role; // ex pharmacist, pharmacy manager, etc.
 
 //Anything else to add??
 
@@ -25,7 +25,57 @@ public class PharmacyStaff {
         this.role = role;
     }
 
+    // Default constructor
+    public PharmacyStaff() {}
 
+    // Getters and Setters
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWorkEmail() {
+        return workEmail;
+    }
+
+    public void setWorkEmail(String workEmail) {
+        this.workEmail = workEmail;
+    }
+
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
+
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+    }
+
+    public Date getLicenseExpirationDate() {
+        return licenseExpirationDate;
+    }
+
+    public void setLicenseExpirationDate(Date licenseExpirationDate) {
+        this.licenseExpirationDate = licenseExpirationDate;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
 }
     

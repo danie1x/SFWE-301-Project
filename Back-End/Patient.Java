@@ -32,4 +32,6 @@ public class Patient {
         this.primaryCarePhysician = primaryCarePhysician;
         this.specialMedicalConcerns = specialMedicalConcerns;
     }
+
+    
 }
