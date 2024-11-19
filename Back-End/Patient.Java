@@ -1,5 +1,4 @@
 package Back-End;
-
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class Patient {
     private List<String> knownAllergies;
     private String primaryCarePhysician;
     private String specialMedicalConcerns;
-    private boolean isActive; // To track if the patient account is active or archived
+
 
     // Constructor
     public Patient(int patientId, String firstName, String lastName, Date dateOfBirth, String phoneNumber, String email, 
