@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" >
+   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+      <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
+         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="61.0" prefWidth="239.0" text="Edit Profile">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/user.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="61.0" prefWidth="239.0" text="Log Out">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/logout.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Pane layoutY="40.0" prefHeight="72.0" prefWidth="216.0" style="-fx-background-color: #808080;">
+         <Label alignment="CENTER" layoutX="2.0" prefHeight="72.0" prefWidth="216.0" text="Pharmacy Management System">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+         <Label layoutX="80.0" layoutY="41.0" text="Dashboard">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+      </Pane>
+   </AnchorPane>
+   <Pane prefHeight="487.0" prefWidth="563.0">
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="183.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Prescriptions">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/medical-prescription.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="183.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Checkout">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/checkout.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="183.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Inventory">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/storage.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="44.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Staff Account">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/onboarding.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="44.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Patient Account">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/patient.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="44.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Update Account">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/managing.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="329.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Notifications">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/bell.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="329.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Reports">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/Report.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="329.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Supplies">
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../icons/aid-kit.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="82.0" layoutY="134.0" text="Information" />
+   </Pane>
+</HBox>

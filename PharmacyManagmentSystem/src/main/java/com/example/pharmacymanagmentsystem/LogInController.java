@@ -22,14 +22,14 @@ public class LogInController {
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
-        // Load the hello-view.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        // Load the dashboardGUI.fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboardGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
 
         // Get the current stage and set the new scene
         Stage stage = (Stage) loginButton.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Hello!");
+        stage.setTitle("Dashboard");
         stage.show();
     }
 }
