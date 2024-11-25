@@ -62,13 +62,13 @@ public class dashboardGUIController {
     protected void onLogOutButtonClick() throws IOException {
         // Handle log out button click
         // Load the LogInPage.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LogInPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogInPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
         // Get the current stage and set the new scene
         Stage stage = (Stage) logOutButton.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Log In!");
+        stage.setTitle("Log In");
         stage.show();
     }
 

@@ -23,7 +23,7 @@ public class LogInController {
     @FXML
     protected void onLoginButtonClick() throws IOException {
         // Load the dashboardGUI.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboardGUI.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboardGUI.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 778, 487);
 
         // Get the current stage and set the new scene
