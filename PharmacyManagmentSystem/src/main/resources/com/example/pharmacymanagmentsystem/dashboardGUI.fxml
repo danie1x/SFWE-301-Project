@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" >
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.dashboardGUIController">
    <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
       <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
          <Button alignment="CENTER" mnemonicParsing="false" prefHeight="61.0" prefWidth="239.0" text="Edit Profile">
@@ -24,7 +24,7 @@
                <Insets top="50.0" />
             </VBox.margin>
          </Button>
-         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="61.0" prefWidth="239.0" text="Log Out">
+         <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Log Out">
             <graphic>
                <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../../../icons/logout.png" />
