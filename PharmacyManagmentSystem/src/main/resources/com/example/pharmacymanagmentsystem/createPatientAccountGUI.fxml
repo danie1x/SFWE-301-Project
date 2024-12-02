@@ -67,6 +67,9 @@
                <TableColumn fx:id="patientPhoneColumn" prefWidth="100.0" text="Phone" />
             </columns>
          </TableView>
+
+         <!-- Remove Patient Button -->
+         <Button fx:id="removePatientButton" disable="true" layoutX="20.0" layoutY="450.0" onAction="#onRemovePatientClick" text="Remove Patient" />
       </children>
    </Pane>
 </HBox>
