@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.checkoutController">
+   <!-- Sidebar -->
+   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+      <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
+         <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/logout.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Pane layoutY="40.0" prefHeight="72.0" prefWidth="216.0" style="-fx-background-color: #808080;">
+         <Label alignment="CENTER" layoutX="2.0" prefHeight="72.0" prefWidth="216.0" text="Pharmacy Management System">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+         <Text layoutX="83.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout" />
+      </Pane>
+   </AnchorPane>
+
+   <!-- Main Pane -->
+   <Pane prefHeight="487.0" prefWidth="563.0">
+      <children>
+         <!-- Customer Information Section -->
+         <Text layoutX="20.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Information" />
+         <TextField fx:id="customerNameField" layoutX="20.0" layoutY="50.0" prefWidth="250.0" promptText="Customer Name" />
+         <TextField fx:id="customerContactField" layoutX="290.0" layoutY="50.0" prefWidth="250.0" promptText="Contact Information" />
+
+         <!-- Items Summary Section -->
+         <Text layoutX="20.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items Summary" />
+         <TableView fx:id="itemsTable" layoutX="20.0" layoutY="130.0" prefHeight="200.0" prefWidth="520.0">
+            <columns>
+               <TableColumn fx:id="itemNameColumn" prefWidth="200.0" text="Item Name" />
+               <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantity" />
+               <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price" />
+               <TableColumn fx:id="totalColumn" prefWidth="120.0" text="Total" />
+            </columns>
+         </TableView>
+
+         <!-- Payment Section -->
+         <Text layoutX="20.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Information" />
+         <TextField fx:id="cardNumberField" layoutX="20.0" layoutY="380.0" prefWidth="250.0" promptText="Card Number" />
+         <TextField fx:id="expirationDateField" layoutX="290.0" layoutY="380.0" prefWidth="120.0" promptText="Expiration Date (MM/YY)" />
+         <PasswordField fx:id="cvvField" layoutX="430.0" layoutY="380.0" prefWidth="60.0" promptText="CVV" />
+
+         <!-- Action Buttons -->
+         <HBox layoutX="20.0" layoutY="430.0" spacing="10.0">
+            <Button fx:id="completeCheckoutButton" onAction="#onCompleteCheckoutClick" text="Complete Checkout" />
+            <Button fx:id="cancelCheckoutButton" onAction="#onCancelCheckoutClick" text="Cancel" />
+         </HBox>
+      </children>
+   </Pane>
+</HBox>
