@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.dashboardGUIController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.inventoryController">
    <!-- Sidebar -->
    <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
       <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
@@ -29,7 +36,7 @@
                <Font name="System Bold" size="13.0" />
             </font>
          </Label>
-         <Text layoutX="83.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" />
+         <Text layoutX="83.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" />
       </Pane>
    </AnchorPane>
 
@@ -39,23 +46,30 @@
          <!-- Inventory Section -->
          <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
             <TextField fx:id="searchField" promptText="Search inventory..." />
-            <Button fx:id="searchButton" text="Search" onAction="#onSearchClick" />
+            <Button fx:id="searchButton" onAction="#onSearchClick" text="Search" />
          </HBox>
-         <TableView fx:id="inventoryTable" layoutX="20.0" layoutY="60.0" prefHeight="350.0" prefWidth="520.0">
+         <TableView fx:id="inventoryTable" layoutX="20.0" layoutY="60.0" prefHeight="300.0" prefWidth="520.0">
             <columns>
-               <TableColumn fx:id="itemIdColumn" prefWidth="100.0" text="Item ID" />
-               <TableColumn fx:id="itemNameColumn" prefWidth="150.0" text="Name" />
-               <TableColumn fx:id="categoryColumn" prefWidth="100.0" text="Category" />
-               <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
-               <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
+               <TableColumn fx:id="itemIdColumn" prefWidth="80.0" text="Item ID" />
+               <TableColumn fx:id="itemNameColumn" prefWidth="120.0" text="Name" />
+               <TableColumn fx:id="quantityColumn" prefWidth="80.0" text="Quantity" />
+               <TableColumn fx:id="priceColumn" prefWidth="80.0" text="Price" />
+               <TableColumn fx:id="expiryColumn" prefWidth="160.0" text="Expiry Date" />
             </columns>
          </TableView>
+
+         <!-- Inventory Action Buttons -->
+         <HBox layoutX="20.0" layoutY="380.0" spacing="10.0">
+            <Button fx:id="updateInventoryButton" onAction="#onUpdateInventoryClick" text="Update Inventory" />
+            <Button fx:id="lowStockButton" onAction="#onLowStockClick" text="Low Stock Notification" />
+            <Button fx:id="orderNewMedButton" onAction="#onOrderNewMedsClick" text="Order New Medicines" />
+         </HBox>
+
+         <!-- Remove Inventory Button -->
          <HBox layoutX="20.0" layoutY="420.0" spacing="10.0">
-            <Button onAction="#onAddItemClick" text="Add Item" />
-            <Button onAction="#onEditItemClick" text="Edit Item" />
-            <Button onAction="#onDeleteItemClick" text="Delete Item" />
+            <Button fx:id="removeInventoryButton" onAction="#onRemoveExpiredClick" text="Remove Expired" />
+            <Button fx:id="expiredNotificationButton" onAction="#onExpiredNotificationClick" text="Expired Notification" />
          </HBox>
       </children>
    </Pane>
 </HBox>
-

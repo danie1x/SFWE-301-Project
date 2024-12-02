@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,9 +16,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.prescriptionController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.prescriptionController">
    <!-- Sidebar -->
-   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+   <AnchorPane prefHeight="600.0" prefWidth="216.0" style="-fx-background-color: #000000;">
       <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
          <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
             <graphic>
@@ -36,37 +37,45 @@
                <Font name="System Bold" size="13.0" />
             </font>
          </Label>
-         <Text layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription" />
+         <Text layoutX="54.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription System" />
       </Pane>
    </AnchorPane>
 
    <!-- Main Pane -->
-   <Pane prefHeight="431.0" prefWidth="554.0">
+   <Pane prefHeight="600.0" prefWidth="684.0">
       <children>
-         <!-- Prescription Details Section -->
-         <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription Details" />
-         <TableView fx:id="medicineTable" layoutX="14.0" layoutY="23.0" prefHeight="300.0" prefWidth="520.0">
+         <!-- Prescription Entry Section -->
+         <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription Entry" />
+         <TextField fx:id="patientNameField" layoutX="20.0" layoutY="31.0" prefWidth="300.0" promptText="Patient Name" />
+         <TextField fx:id="doctorNameField" layoutX="340.0" layoutY="31.0" prefWidth="300.0" promptText="Doctor Name" />
+         <TextArea fx:id="prescriptionDetailsField" layoutX="20.0" layoutY="71.0" prefHeight="80.0" prefWidth="620.0" promptText="Enter prescription details..." />
+         <Button fx:id="acceptPrescriptionButton" layoutX="20.0" layoutY="161.0" onAction="#onAcceptPrescriptionClick" text="Accept Prescription" />
+
+         <!-- Medication Availability and Inventory -->
+         <Text layoutX="21.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medication Availability" />
+         <HBox layoutX="20.0" layoutY="219.0" spacing="10.0">
+            <TextField fx:id="medicineSearchField" prefWidth="300.0" promptText="Search Medicine" />
+            <Button fx:id="checkAvailabilityButton" onAction="#onCheckAvailabilityClick" text="Check Availability" />
+         </HBox>
+
+         <!-- Prescription Filling Section -->
+         <Text layoutX="20.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription Filling" />
+         <TableView fx:id="prescriptionTable" layoutX="20.0" layoutY="280.0" prefHeight="150.0" prefWidth="620.0">
             <columns>
                <TableColumn fx:id="medicineNameColumn" prefWidth="200.0" text="Medicine Name" />
-               <TableColumn fx:id="dosageColumn" prefWidth="100.0" text="Dosage" />
                <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantity" />
-               <TableColumn fx:id="instructionsColumn" prefWidth="120.0" text="Instructions" />
+               <TableColumn fx:id="pharmacistNameColumn" prefWidth="150.0" text="Pharmacist Name" />
+               <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Date Filled" />
             </columns>
          </TableView>
-         <HBox layoutX="14.0" layoutY="333.0" spacing="10.0">
-            <Button fx:id="addMedicineButton" onAction="#onAddMedicineClick" text="Add Medicine" />
-            <Button fx:id="removeMedicineButton" onAction="#onRemoveMedicineClick" text="Remove Selected" />
+         <HBox layoutX="20.0" layoutY="440.0" spacing="10.0">
+            <Button fx:id="fillPrescriptionButton" onAction="#onFillPrescriptionClick" text="Fill Prescription" />
+            <Button fx:id="trackPrescriptionButton" onAction="#onTrackPrescriptionClick" text="Track Prescription" />
          </HBox>
 
-         <!-- Additional Notes Section -->
-         <Text layoutX="14.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Notes" />
-         <TextArea fx:id="notesField" layoutX="14.0" layoutY="393.0" prefHeight="50.0" prefWidth="520.0" promptText="Enter additional notes..." />
-
-         <!-- Action Buttons -->
-         <HBox layoutX="14.0" layoutY="453.0" spacing="10.0">
-            <Button fx:id="savePrescriptionButton" onAction="#onSavePrescriptionClick" text="Save Prescription" />
-            <Button fx:id="clearFormButton" onAction="#onClearFormClick" text="Clear Form" />
-         </HBox>
+         <!-- Activity Log -->
+         <Text layoutX="20.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activity Log" />
+         <TextArea fx:id="activityLogField" editable="false" layoutX="20.0" layoutY="486.0" prefHeight="100.0" prefWidth="620.0" promptText="Activity log..." />
       </children>
    </Pane>
 </HBox>

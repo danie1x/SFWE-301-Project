@@ -15,6 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.dashboardGUIController">
+   <!-- Sidebar -->
    <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
       <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
          <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
@@ -34,28 +35,32 @@
                <Font name="System Bold" size="13.0" />
             </font>
          </Label>
-         <Label layoutX="45.0" layoutY="41.0" text="Account Information">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Label>
+         <Text layoutX="45.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Information" />
       </Pane>
    </AnchorPane>
+
+   <!-- Main Pane -->
    <Pane prefHeight="431.0" prefWidth="554.0">
       <children>
-         <Button layoutX="228.0" layoutY="403.0" mnemonicParsing="false" text="Update Account" />
-         <PasswordField layoutX="202.0" layoutY="341.0" />
-         <TextField layoutX="69.0" layoutY="111.0" />
-         <TextField layoutX="333.0" layoutY="112.0" />
-         <TextField layoutX="202.0" layoutY="215.0" />
-         <TextField layoutX="202.0" layoutY="279.0" />
-         <Text layoutX="119.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
-         <Text layoutX="383.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
-         <Text layoutX="140.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
-         <Text layoutX="126.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-         <Text layoutX="126.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-         <TextField layoutX="202.0" layoutY="154.0" />
-         <Text layoutX="131.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " />
+         <!-- Account Information Section -->
+         <Text layoutX="18.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Information" />
+         <TextField fx:id="firstNameField" layoutX="20.0" layoutY="50.0" prefWidth="250.0" promptText="First Name" />
+         <TextField fx:id="lastNameField" layoutX="290.0" layoutY="50.0" prefWidth="250.0" promptText="Last Name" />
+         <TextField fx:id="emailField" layoutX="20.0" layoutY="90.0" prefWidth="250.0" promptText="Email" />
+         <TextField fx:id="addressField" layoutX="290.0" layoutY="90.0" prefWidth="250.0" promptText="Address" />
+         <TextField fx:id="usernameField" layoutX="20.0" layoutY="130.0" prefWidth="250.0" promptText="Username" />
+         <HBox layoutX="20.0" layoutY="170.0" spacing="10.0">
+            <Button fx:id="updateAccountButton" onAction="#onUpdateAccountClick" text="Update Account" />
+         </HBox>
+
+         <!-- Change Password Section -->
+         <Text layoutX="20.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Password" />
+         <PasswordField fx:id="currentPasswordField" layoutX="20.0" layoutY="250.0" prefWidth="250.0" promptText="Current Password" />
+         <PasswordField fx:id="newPasswordField" layoutX="20.0" layoutY="290.0" prefWidth="250.0" promptText="New Password" />
+         <PasswordField fx:id="confirmPasswordField" layoutX="20.0" layoutY="330.0" prefWidth="250.0" promptText="Confirm New Password" />
+         <HBox layoutX="20.0" layoutY="370.0" spacing="10.0">
+            <Button fx:id="changePasswordButton" onAction="#onChangePasswordClick" text="Change Password" />
+         </HBox>
       </children>
    </Pane>
 </HBox>
