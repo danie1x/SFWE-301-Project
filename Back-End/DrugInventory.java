@@ -89,9 +89,9 @@ public class DrugInventory {
         }
 
         // Example: Adding a new drug to the inventory
-        Drug newDrug = new Drug(31, "NewDrug", 50, 9.99);
-        drugs.add(newDrug);
-        writeInventory(drugs);
+        //Drug newDrug = new Drug(31, "NewDrug", 50, 9.99);
+        //drugs.add(newDrug);
+        //writeInventory(drugs);
 
         System.out.println("\nUpdated Inventory:");
         drugs = readInventory(); // Reload the updated CSV
