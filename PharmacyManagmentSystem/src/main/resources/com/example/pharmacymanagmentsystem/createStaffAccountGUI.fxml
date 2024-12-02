@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.staffManagementController">
+   <!-- Sidebar -->
+   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+      <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
+         <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/logout.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Pane layoutY="40.0" prefHeight="72.0" prefWidth="216.0" style="-fx-background-color: #808080;">
+         <Label alignment="CENTER" layoutX="2.0" prefHeight="72.0" prefWidth="216.0" text="Pharmacy Management System">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+         <Text layoutX="45.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Management" />
+      </Pane>
+   </AnchorPane>
+
+   <!-- Main Pane -->
+   <Pane prefHeight="487.0" prefWidth="563.0">
+      <children>
+         <!-- Create Staff Account Section -->
+         <Text layoutX="20.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Staff Account" />
+         <TextField fx:id="firstNameField" layoutX="20.0" layoutY="50.0" prefWidth="250.0" promptText="First Name" />
+         <TextField fx:id="lastNameField" layoutX="290.0" layoutY="50.0" prefWidth="250.0" promptText="Last Name" />
+         <TextField fx:id="emailField" layoutX="20.0" layoutY="100.0" prefWidth="250.0" promptText="Email" />
+         <TextField fx:id="usernameField" layoutX="290.0" layoutY="100.0" prefWidth="250.0" promptText="Username" />
+         <PasswordField fx:id="passwordField" layoutX="20.0" layoutY="150.0" prefWidth="250.0" promptText="Password" />
+         <Button fx:id="createAccountButton" layoutX="20.0" layoutY="200.0" onAction="#onCreateAccountClick" text="Create Account" />
+
+         <!-- Deactivate Staff Account Section -->
+         <Text layoutX="20.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deactivate Staff Account" />
+         <TableView fx:id="staffTable" layoutX="20.0" layoutY="280.0" prefHeight="150.0" prefWidth="520.0">
+            <columns>
+               <TableColumn fx:id="staffIdColumn" prefWidth="100.0" text="Staff ID" />
+               <TableColumn fx:id="staffNameColumn" prefWidth="200.0" text="Name" />
+               <TableColumn fx:id="staffRoleColumn" prefWidth="150.0" text="Role" />
+               <TableColumn fx:id="staffStatusColumn" prefWidth="70.0" text="Status" />
+            </columns>
+         </TableView>
+         <Button fx:id="deactivateAccountButton" layoutX="20.0" layoutY="440.0" onAction="#onDeactivateAccountClick" text="Deactivate Account" />
+      </children>
+   </Pane>
+</HBox>

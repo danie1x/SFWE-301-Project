@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.dashboardGUIController">
+   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+      <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
+         <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/logout.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Pane layoutY="40.0" prefHeight="72.0" prefWidth="216.0" style="-fx-background-color: #808080;">
+         <Label alignment="CENTER" layoutX="2.0" prefHeight="72.0" prefWidth="216.0" text="Pharmacy Management System">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+         <Label layoutX="45.0" layoutY="41.0" text="Account Information">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+      </Pane>
+   </AnchorPane>
+   <Pane prefHeight="431.0" prefWidth="554.0">
+      <children>
+         <Button layoutX="228.0" layoutY="403.0" mnemonicParsing="false" text="Update Account" />
+         <PasswordField layoutX="202.0" layoutY="341.0" />
+         <TextField layoutX="69.0" layoutY="111.0" />
+         <TextField layoutX="333.0" layoutY="112.0" />
+         <TextField layoutX="202.0" layoutY="215.0" />
+         <TextField layoutX="202.0" layoutY="279.0" />
+         <Text layoutX="119.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+         <Text layoutX="383.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+         <Text layoutX="140.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+         <Text layoutX="126.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+         <Text layoutX="126.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+         <TextField layoutX="202.0" layoutY="154.0" />
+         <Text layoutX="131.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " />
+      </children>
+   </Pane>
+</HBox>

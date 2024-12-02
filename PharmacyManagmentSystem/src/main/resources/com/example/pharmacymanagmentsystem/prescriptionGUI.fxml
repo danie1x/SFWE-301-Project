@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.prescriptionController">
+   <!-- Sidebar -->
+   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+      <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
+         <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/logout.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Pane layoutY="40.0" prefHeight="72.0" prefWidth="216.0" style="-fx-background-color: #808080;">
+         <Label alignment="CENTER" layoutX="2.0" prefHeight="72.0" prefWidth="216.0" text="Pharmacy Management System">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+         <Text layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription" />
+      </Pane>
+   </AnchorPane>
+
+   <!-- Main Pane -->
+   <Pane prefHeight="431.0" prefWidth="554.0">
+      <children>
+         <!-- Prescription Details Section -->
+         <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription Details" />
+         <TableView fx:id="medicineTable" layoutX="14.0" layoutY="23.0" prefHeight="300.0" prefWidth="520.0">
+            <columns>
+               <TableColumn fx:id="medicineNameColumn" prefWidth="200.0" text="Medicine Name" />
+               <TableColumn fx:id="dosageColumn" prefWidth="100.0" text="Dosage" />
+               <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantity" />
+               <TableColumn fx:id="instructionsColumn" prefWidth="120.0" text="Instructions" />
+            </columns>
+         </TableView>
+         <HBox layoutX="14.0" layoutY="333.0" spacing="10.0">
+            <Button fx:id="addMedicineButton" onAction="#onAddMedicineClick" text="Add Medicine" />
+            <Button fx:id="removeMedicineButton" onAction="#onRemoveMedicineClick" text="Remove Selected" />
+         </HBox>
+
+         <!-- Additional Notes Section -->
+         <Text layoutX="14.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Notes" />
+         <TextArea fx:id="notesField" layoutX="14.0" layoutY="393.0" prefHeight="50.0" prefWidth="520.0" promptText="Enter additional notes..." />
+
+         <!-- Action Buttons -->
+         <HBox layoutX="14.0" layoutY="453.0" spacing="10.0">
+            <Button fx:id="savePrescriptionButton" onAction="#onSavePrescriptionClick" text="Save Prescription" />
+            <Button fx:id="clearFormButton" onAction="#onClearFormClick" text="Clear Form" />
+         </HBox>
+      </children>
+   </Pane>
+</HBox>
