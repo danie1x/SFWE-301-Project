@@ -14,7 +14,7 @@
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.dashboardGUIController">
    <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
       <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
-         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="61.0" prefWidth="239.0" text="Edit Profile">
+         <Button fx:id="customizeDashboardButton" alignment="CENTER" mnemonicParsing="false" onAction="#onCustomizeDashboardButtonClick" prefHeight="61.0" prefWidth="239.0" text="Customize Dashboard">
             <graphic>
                <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../../../icons/user.png" />
@@ -49,69 +49,68 @@
       </Pane>
    </AnchorPane>
    <Pane prefHeight="487.0" prefWidth="563.0">
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="183.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Prescriptions">
+      <Button fx:id="prescriptionsButton" alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="183.0" mnemonicParsing="false" onAction="#onCheckoutButtonClick" prefHeight="114.0" prefWidth="123.0" text="Prescriptions">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/medical-prescription.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="183.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Checkout">
+      <Button fx:id="checkoutButton" alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="183.0" mnemonicParsing="false" onAction="#onCheckoutButtonClick" prefHeight="114.0" prefWidth="123.0" text="Checkout">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/checkout.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="183.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Inventory">
+      <Button fx:id="inventoryButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="183.0" mnemonicParsing="false" onAction="#onInventoryButtonClick" prefHeight="114.0" prefWidth="123.0" text="Inventory">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/storage.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="44.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Staff Account">
+      <Button fx:id="staffAccountButton" alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="44.0" mnemonicParsing="false" onAction="#onStaffAccountButtonClick" prefHeight="114.0" prefWidth="123.0" text="Staff Account">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/onboarding.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="44.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Patient Account">
+      <Button fx:id="patientAccountButton" alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="44.0" mnemonicParsing="false" onAction="#onPatientAccountButtonClick" prefHeight="114.0" prefWidth="123.0" text="Patient Account">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/patient.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="44.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Update Account">
+      <Button fx:id="updateAccountButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="44.0" mnemonicParsing="false" onAction="#onUpdateAccountButtonClick" prefHeight="114.0" prefWidth="123.0" text="Update Account Information" textAlignment="CENTER" wrapText="true">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/managing.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="329.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Notifications">
+      <Button fx:id="notificationsButton" alignment="CENTER" contentDisplay="TOP" layoutX="387.0" layoutY="329.0" mnemonicParsing="false" onAction="#onNotificationsButtonClick" prefHeight="114.0" prefWidth="123.0" text="Notifications">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/bell.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="329.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Reports">
+      <Button fx:id="reportsButton" alignment="CENTER" contentDisplay="TOP" layoutX="220.0" layoutY="329.0" mnemonicParsing="false" onAction="#onReportsButtonClick" prefHeight="114.0" prefWidth="123.0" text="Reports">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/Report.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="329.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" text="Supplies">
+      <Button fx:id="suppliesButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="329.0" mnemonicParsing="false" onAction="#onSuppliesButtonClick" prefHeight="114.0" prefWidth="123.0" text="Supplies">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../icons/aid-kit.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="82.0" layoutY="134.0" text="Information" />
    </Pane>
 </HBox>

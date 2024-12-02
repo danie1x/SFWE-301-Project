@@ -2,6 +2,7 @@ package com.example.pharmacymanagmentsystem;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class dashboardGUIController {
 
     @FXML
-    private Button editProfileButton;
+    private Button customizeDashboardButton;
 
     @FXML
     private Button logOutButton;
@@ -44,6 +45,25 @@ public class dashboardGUIController {
     @FXML
     private Button suppliesButton;
 
+    private DashboardModel model;
+
+    public void setModel(DashboardModel model) {
+        this.model = model;
+        bindButtonVisibility();
+    }
+
+    private void bindButtonVisibility() {
+        prescriptionsButton.visibleProperty().bind(model.showPrescriptionsProperty());
+        checkoutButton.visibleProperty().bind(model.showCheckoutProperty());
+        inventoryButton.visibleProperty().bind(model.showInventoryProperty());
+        staffAccountButton.visibleProperty().bind(model.showStaffAccountProperty());
+        patientAccountButton.visibleProperty().bind(model.showPatientAccountProperty());
+        updateAccountButton.visibleProperty().bind(model.showUpdateAccountProperty());
+        notificationsButton.visibleProperty().bind(model.showNotificationsProperty());
+        reportsButton.visibleProperty().bind(model.showReportsProperty());
+        suppliesButton.visibleProperty().bind(model.showSuppliesProperty());
+    }
+
     @FXML
     private Label informationLabel;
 
@@ -54,8 +74,20 @@ public class dashboardGUIController {
     private Label systemLabel;
 
     @FXML
-    protected void onEditProfileButtonClick() {
+    protected void onCustomizeDashboardButtonClick() throws IOException {
         // Handle edit profile button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("customizeDashboard.fxml"));
+        Parent customizeRoot = fxmlLoader.load();
+        customizeDashboardController customizeController = fxmlLoader.getController();
+        customizeController.setModel(model);
+
+        Scene scene = new Scene(customizeRoot, 469, 400);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) customizeDashboardButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Customize Dashboard");
+        stage.show();
     }
 
     @FXML
