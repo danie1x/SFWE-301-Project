@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacymanagmentsystem.dashboardGUIController">
+   <!-- Sidebar -->
+   <AnchorPane prefHeight="487.0" prefWidth="216.0" style="-fx-background-color: #000000;">
+      <VBox layoutY="139.0" prefHeight="349.0" prefWidth="216.0">
+         <Button fx:id="logOutButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="61.0" prefWidth="239.0" text="Go Back">
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../icons/logout.png" />
+               </ImageView>
+            </graphic>
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+         </Button>
+      </VBox>
+      <Pane layoutY="40.0" prefHeight="72.0" prefWidth="216.0" style="-fx-background-color: #808080;">
+         <Label alignment="CENTER" layoutX="2.0" prefHeight="72.0" prefWidth="216.0" text="Pharmacy Management System">
+            <font>
+               <Font name="System Bold" size="13.0" />
+            </font>
+         </Label>
+         <Text layoutX="45.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Recovery" />
+      </Pane>
+   </AnchorPane>
+
+   <!-- Main Pane -->
+   <Pane prefHeight="431.0" prefWidth="554.0">
+      <children>
+         <!-- Account Recovery Section -->
+         <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recover Your Account" />
+         <TextField fx:id="recoveryEmailField" layoutX="20.0" layoutY="50.0" prefWidth="250.0" promptText="Registered Email" />
+         <TextField fx:id="recoveryUsernameField" layoutX="290.0" layoutY="50.0" prefWidth="250.0" promptText="Username" />
+         <Text layoutX="20.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your recovery email and username to reset your password." />
+         <HBox layoutX="20.0" layoutY="130.0" spacing="10.0">
+            <Button fx:id="recoverAccountButton" onAction="#onRecoverAccountClick" text="Recover Account" />
+         </HBox>
+
+         <!-- Change Password Section -->
+         <Text layoutX="20.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Password" />
+         <PasswordField fx:id="currentPasswordField" layoutX="20.0" layoutY="200.0" prefWidth="250.0" promptText="Current Password" />
+         <PasswordField fx:id="newPasswordField" layoutX="20.0" layoutY="240.0" prefWidth="250.0" promptText="New Password" />
+         <PasswordField fx:id="confirmPasswordField" layoutX="20.0" layoutY="280.0" prefWidth="250.0" promptText="Confirm New Password" />
+         <HBox layoutX="20.0" layoutY="320.0" spacing="10.0">
+            <Button fx:id="changePasswordButton" onAction="#onChangePasswordClick" text="Change Password" />
+         </HBox>
+      </children>
+   </Pane>
+</HBox>
+

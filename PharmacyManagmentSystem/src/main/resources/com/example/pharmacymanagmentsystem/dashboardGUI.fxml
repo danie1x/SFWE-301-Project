@@ -84,10 +84,10 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="updateAccountButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="44.0" mnemonicParsing="false" onAction="#onUpdateAccountButtonClick" prefHeight="114.0" prefWidth="123.0" text="Update Account Information" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="updateAccountButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="44.0" mnemonicParsing="false" onAction="#onUpdateAccountButtonClick" prefHeight="114.0" prefWidth="123.0" text="Update Password" textAlignment="CENTER" wrapText="true">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../icons/managing.png" />
+               <Image url="@../../../icons/password.png" />
             </ImageView>
          </graphic>
       </Button>
@@ -105,12 +105,13 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="suppliesButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="329.0" mnemonicParsing="false" onAction="#onSuppliesButtonClick" prefHeight="114.0" prefWidth="123.0" text="Supplies">
+      <Button fx:id="suppliesButton" alignment="CENTER" contentDisplay="TOP" layoutX="51.0" layoutY="329.0" mnemonicParsing="false" onAction="#onSuppliesButtonClick" prefHeight="114.0" prefWidth="123.0" text="Account Recovery">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../icons/aid-kit.png" />
+               <Image url="@../../../icons/managing.png" />
             </ImageView>
          </graphic>
       </Button>
+
    </Pane>
 </HBox>
