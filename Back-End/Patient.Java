@@ -1,85 +1,55 @@
 package Back-End;
-import java.util.Date;
 import java.util.List;
 
 
 public class Patient {
     // Attributes for the patient
-    private int patientId;
-    private String lastName;
-    private String firstName;
-    private Date dateOfBirth;
+    private String name;
+    private String dateOfBirth;
+    private String address;
     private String phoneNumber;
     private String email;
-    private String homeAddress;
-    private List<String> knownAllergies;
-    private String primaryCarePhysician;
-    private int insuranceId;
-    private String specialMedicalConcerns;
-
+    private String insuranceId;
 
     // Constructor
-    public Patient(int patientId, 
-                   String lastName, 
-                   String firstName, 
-                   Date dateOfBirth, 
-                   String phoneNumber, 
-                   String email, 
-                   String homeAddress, 
-                   List<String> knownAllergies, 
-                   String primaryCarePhysician, 
-                   int insuranceId,
-                   String specialMedicalConcerns) {
+    public Patient( String name, 
+                    String dateOfBirth, 
+                    String address, 
+                    String phoneNumber, 
+                    String email, 
+                    String insuranceId) {
 
-        this.patientId = patientId;        
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.name = name;
         this.dateOfBirth = dateOfBirth;
+        this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.homeAddress = homeAddress;
-        this.knownAllergies = knownAllergies;
-        this.primaryCarePhysician = primaryCarePhysician;
         this.insuranceId = insuranceId;
-        this.specialMedicalConcerns = specialMedicalConcerns;
-   
     }
 
     // Default constructor
-    public Patient() {}
+    public Patient() {
+        this.name = "";
+        this.dateOfBirth = "";
+        this.address = "";
+        this.phoneNumber = "";
+        this.email = "";
+        this.insuranceId = "";
+    }
 
-    // Getters and Setters
-    public int getPatientId() { return patientId; }
-    public void setPatientId(int patientId) { this.patientId = patientId; }
-
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
-
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-
-    public Date getDateOfBirth() { return dateOfBirth; }
-    public void setDateOfBirth(Date dateOfBirth) { this.dateOfBirth = dateOfBirth; }
-
+    // Getters for each attribute
+    public String getName() { return name; }
+    public String getDateOfBirth() { return dateOfBirth; }
+    public String getAddress() { return address; }
     public String getPhoneNumber() { return phoneNumber; }
-    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
-
     public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getInsuranceId() { return insuranceId; }
 
-    public String getHomeAddress() { return homeAddress; }
-    public void setHomeAddress(String homeAddress) { this.homeAddress = homeAddress; }
-
-    public List<String> getKnownAllergies() { return knownAllergies; }
-    public void setKnownAllergies(List<String> knownAllergies) { this.knownAllergies = knownAllergies; }
-
-    public String getPrimaryCarePhysician() { return primaryCarePhysician; }
-    public void setPrimaryCarePhysician(String primaryCarePhysician) { this.primaryCarePhysician = primaryCarePhysician; }
-
-    public int getInsuranceId() { return insuranceId; }
-    public void setInsuranceId(int insuranceId) { this.insuranceId = insuranceId; }    
-    
-    public String getSpecialMedicalConcerns() { return specialMedicalConcerns; }
-    public void setSpecialMedicalConcerns(String specialMedicalConcerns) { this.specialMedicalConcerns = specialMedicalConcerns; }
-    
+    // Setters for each attribute
+    public void setName(String name) { this.name = name;}
+    public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth;}
+    public void setAddress(String address) { this.address = address;}
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber;}
+    public void setEmail(String email) { this.email = email;}
+    public void setInsuranceId(String insuranceId) { this.insuranceId = insuranceId;}
 }

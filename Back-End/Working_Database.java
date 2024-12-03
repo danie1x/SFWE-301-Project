@@ -104,11 +104,6 @@ public static String[] findRecordByName(String name) {
 
         // Try printing the record with name "Jane"
         String[] record = findRecordByName("Jane");
-        System.out.println(record[0]);
-
-
-
-
-
+        System.out.println(record[1]);
     }
 }

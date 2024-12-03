@@ -1,4 +1,1 @@
-username,lastName,firstName,dateOfBirth,phoneNumber,email,homeAddress,primaryCarePhysician,insuranceId
-jDoe,Doe,Jane,01/01/2000,555-555-5555,jDoe@catmail.com,123 Arizona Ave.,Dr. Wildcat,00001
-Jane,01/01/2000,123 Arizona Ave.,555-555-5555,jDoe@catmail.com,00001
 Jane,01/01/2000,123 Arizona Ave.,555-555-5555,jDoe@catmail.com,00001
