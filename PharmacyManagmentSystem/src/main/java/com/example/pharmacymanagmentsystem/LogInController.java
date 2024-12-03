@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -25,6 +27,19 @@ public class LogInController {
 
     @FXML
     public void onLoginButtonClick() throws IOException {
+        String enteredUsername = usernameField.getText();
+        String enteredPassword = passwordField.getText();
+        String correctPassword = "yourCorrectPassword"; // Replace with your actual password checking logic
+
+        if (!enteredPassword.equals(correctPassword)) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Login Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Incorrect password. Please try again.");
+            alert.showAndWait();
+            return;
+        }
+
         Properties properties = new Properties();
         properties.setProperty("showPrescriptions", "true");
         properties.setProperty("showCheckout", "true");
@@ -52,7 +67,6 @@ public class LogInController {
         customizeController.setModel(model);
 
         Scene scene = new Scene(dashboardRoot, 778, 487);
-
 
         // Get the current stage and set the new scene
         Stage stage = (Stage) loginButton.getScene().getWindow();
