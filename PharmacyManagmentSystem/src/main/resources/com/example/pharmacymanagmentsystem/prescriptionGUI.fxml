@@ -47,7 +47,7 @@
          <!-- Prescription Entry Section -->
          <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescription Entry" />
          <TextField fx:id="patientNameField" layoutX="20.0" layoutY="31.0" prefWidth="300.0" promptText="Patient Name" />
-         <TextField fx:id="doctorNameField" layoutX="340.0" layoutY="31.0" prefWidth="300.0" promptText="Doctor Name" />
+         <TextField fx:id="doctorNameField" layoutX="340.0" layoutY="31.0" prefWidth="300.0" promptText="Pharmacist Name" />
          <TextArea fx:id="prescriptionDetailsField" layoutX="20.0" layoutY="71.0" prefHeight="80.0" prefWidth="620.0" promptText="Enter prescription details..." />
          <Button fx:id="acceptPrescriptionButton" layoutX="20.0" layoutY="161.0" onAction="#onAcceptPrescriptionClick" text="Accept Prescription" />
 

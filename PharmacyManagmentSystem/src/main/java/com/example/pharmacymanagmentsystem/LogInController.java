@@ -25,6 +25,9 @@ public class LogInController {
     @FXML
     private Button loginButton;
 
+    private int failedAttempts = 0;
+    private static final int MAX_FAILED_ATTEMPTS = 5;
+
     @FXML
     public void onLoginButtonClick() throws IOException {
         String enteredUsername = usernameField.getText();
@@ -32,13 +35,26 @@ public class LogInController {
         String correctPassword = "yourCorrectPassword"; // Replace with your actual password checking logic
 
         if (!enteredPassword.equals(correctPassword)) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Login Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Incorrect password. Please try again.");
-            alert.showAndWait();
-            return;
+            failedAttempts++;
+            if (failedAttempts >= MAX_FAILED_ATTEMPTS) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Account Locked");
+                alert.setHeaderText(null);
+                alert.setContentText("This account has been locked due to failed sign in attempts. Please request the pharmacy manager to unlock this account to continue.");
+                alert.showAndWait();
+                return;
+            } else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Incorrect password. Please try again.");
+                alert.showAndWait();
+                return;
+            }
         }
+
+        // Reset failed attempts on successful login
+        failedAttempts = 0;
 
         Properties properties = new Properties();
         properties.setProperty("showPrescriptions", "true");
