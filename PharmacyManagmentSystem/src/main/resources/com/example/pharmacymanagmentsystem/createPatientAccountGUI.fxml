@@ -57,12 +57,11 @@
          </HBox>
 
          <!-- Patient Accounts Table -->
-         <Text layoutX="20.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Accounts" />
-         <TableView fx:id="patientTable" layoutX="20.0" layoutY="290.0" prefHeight="150.0" prefWidth="520.0">
+         <Text layoutX="25.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Accounts" />
+         <TableView fx:id="patientTable" layoutX="20.0" layoutY="291.0" prefHeight="149.0" prefWidth="534.0">
             <columns>
-               <TableColumn fx:id="patientIdColumn" prefWidth="75.0" text="Patient ID" />
-               <TableColumn fx:id="patientNameColumn" prefWidth="150.0" text="Name" />
-               <TableColumn fx:id="patientDobColumn" prefWidth="100.0" text="Date of Birth" />
+               <TableColumn fx:id="patientNameColumn" prefWidth="180.0" text="Name" />
+               <TableColumn fx:id="patientDobColumn" prefWidth="120.0" text="Date of Birth" />
                <TableColumn fx:id="patientEmailColumn" prefWidth="125.0" text="Email" />
                <TableColumn fx:id="patientPhoneColumn" prefWidth="100.0" text="Phone" />
             </columns>

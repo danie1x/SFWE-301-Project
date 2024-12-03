@@ -37,7 +37,7 @@
                <Font name="System Bold" size="13.0" />
             </font>
          </Label>
-         <Text layoutX="45.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Management" />
+         <Text layoutX="45.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Management" />
       </Pane>
    </AnchorPane>
 
@@ -54,16 +54,16 @@
          <Button fx:id="createAccountButton" layoutX="20.0" layoutY="200.0" onAction="#onCreateAccountClick" text="Create Account" />
 
          <!-- Deactivate Staff Account Section -->
-         <Text layoutX="20.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deactivate Staff Account" />
+         <Text layoutX="23.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deactivate Staff Account" />
          <TableView fx:id="staffTable" layoutX="20.0" layoutY="280.0" prefHeight="150.0" prefWidth="520.0">
             <columns>
-               <TableColumn fx:id="staffIdColumn" prefWidth="100.0" text="Staff ID" />
+               <TableColumn fx:id="staffUsernameColumn" prefWidth="150.0" text="Username" />
                <TableColumn fx:id="staffNameColumn" prefWidth="200.0" text="Name" />
                <TableColumn fx:id="staffRoleColumn" prefWidth="150.0" text="Role" />
-               <TableColumn fx:id="staffStatusColumn" prefWidth="70.0" text="Status" />
             </columns>
          </TableView>
          <Button fx:id="deactivateAccountButton" layoutX="20.0" layoutY="440.0" onAction="#onDeactivateAccountClick" text="Deactivate Account" />
       </children>
    </Pane>
 </HBox>
+
