@@ -18,7 +18,7 @@ public class Staff_Database {
         String filePath = "staff_database.csv";
         File file = new File(filePath);
 
-        // Check if the patient already exists
+        // Check if the staff member already exists
         if (isStaffExists(staff.getName(), filePath)) {
             System.out.println("Staff member already exists: " + staff.getName());
             return;
@@ -53,7 +53,7 @@ public class Staff_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Method for finding a Patient by name
+    // Method for finding a staff member by name
     public static String[] findStaffByName(String name) {
         String filePath = "staff_database.csv";
         String[] result = null;
@@ -66,10 +66,10 @@ public class Staff_Database {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     String[] values = line.split(",");
-                    // Check if this is the Patient to return
+                    // Check if this is the staff member to return
                     if (values[0].equals(name)) {
                         result = values;
-                        break; // Exit the loop once the Patient is found
+                        break; // Exit the loop once the staff member is found
                     }
                 }
             }
