@@ -54,10 +54,10 @@ public class customizeDashboardController {
             inventoryCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showInventory", "false")));
             staffAccountCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showStaffAccount", "false")));
             patientAccountCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showPatientAccount", "false")));
-            updatePasswordCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showUpdateAccount", "false")));
+            updatePasswordCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showUpdatePassword", "false")));
             notificationsCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showNotifications", "false")));
             reportsCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showReports", "false")));
-            accountRecoveryCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showSupplies", "false")));
+            accountRecoveryCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showAccountRecovery", "false")));
         } catch (IOException e) {
             e.printStackTrace();
         }
