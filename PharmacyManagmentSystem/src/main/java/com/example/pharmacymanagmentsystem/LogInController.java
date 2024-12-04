@@ -39,6 +39,7 @@ public class LogInController {
 
         if (enteredUsername.equals(MANAGER_USERNAME) && enteredPassword.equals(MANAGER_PASSWORD)) {
             // Automatic login for pharmacy manager
+            failedAttempts = 0;
             loadDashboard();
             return;
         }
@@ -61,6 +62,17 @@ public class LogInController {
                 return;
             }
         }
+
+        if ((failedAttempts >= MAX_FAILED_ATTEMPTS) && (enteredPassword.equals(correctPassword))) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Account Locked");
+            alert.setHeaderText(null);
+            alert.setContentText("This account has been locked due to failed sign in attempts. Please request the pharmacy manager to unlock this account to continue.");
+            alert.showAndWait();
+            return;
+        }
+
+
 
         // Reset failed attempts on successful login
         failedAttempts = 0;
