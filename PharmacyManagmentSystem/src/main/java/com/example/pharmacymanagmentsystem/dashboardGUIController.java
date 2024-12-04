@@ -132,8 +132,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onPatientAccountButtonClick() {
+    protected void onPatientAccountButtonClick() throws IOException {
         // Handle patient account button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("createPatientAccountGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) patientAccountButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Patient Account");
+        stage.show();
     }
 
     @FXML
