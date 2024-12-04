@@ -182,8 +182,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onNotificationsButtonClick() {
+    protected void onNotificationsButtonClick() throws IOException {
         // Handle notifications button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("notificationsGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) notificationsButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Notifications");
+        stage.show();
     }
 
     @FXML
