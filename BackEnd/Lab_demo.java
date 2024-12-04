@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Working_Database_demo {
+public class Lab_demo {
     public static void main(String[] args) throws IOException {
 
     String filePath = "working_database.csv";
