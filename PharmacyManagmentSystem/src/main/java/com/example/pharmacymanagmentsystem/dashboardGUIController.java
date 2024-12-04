@@ -34,7 +34,7 @@ public class dashboardGUIController {
     private Button patientAccountButton;
 
     @FXML
-    private Button updateAccountButton;
+    private Button updatePasswordButton;
 
     @FXML
     private Button notificationsButton;
@@ -43,7 +43,7 @@ public class dashboardGUIController {
     private Button reportsButton;
 
     @FXML
-    private Button suppliesButton;
+    private Button accountRecoveryButton;
 
     private DashboardModel model;
 
@@ -58,10 +58,10 @@ public class dashboardGUIController {
         inventoryButton.visibleProperty().bind(model.showInventoryProperty());
         staffAccountButton.visibleProperty().bind(model.showStaffAccountProperty());
         patientAccountButton.visibleProperty().bind(model.showPatientAccountProperty());
-        updateAccountButton.visibleProperty().bind(model.showUpdateAccountProperty());
+        updatePasswordButton.visibleProperty().bind(model.showUpdatePasswordProperty());
         notificationsButton.visibleProperty().bind(model.showNotificationsProperty());
         reportsButton.visibleProperty().bind(model.showReportsProperty());
-        suppliesButton.visibleProperty().bind(model.showSuppliesProperty());
+        accountRecoveryButton.visibleProperty().bind(model.showAccountRecoveryProperty());
     }
 
     @FXML
@@ -130,7 +130,7 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onUpdateAccountButtonClick() {
+    protected void onUpdatePasswordButtonClick() {
         // Handle update account button click
     }
 
@@ -145,7 +145,7 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onSuppliesButtonClick() {
+    protected void onAccountRecoveryButtonClick() {
         // Handle supplies button click
     }
 }

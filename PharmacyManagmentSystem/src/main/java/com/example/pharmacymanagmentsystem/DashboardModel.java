@@ -9,10 +9,10 @@ public class DashboardModel {
     private final BooleanProperty showInventory = new SimpleBooleanProperty(true);
     private final BooleanProperty showStaffAccount = new SimpleBooleanProperty(true);
     private final BooleanProperty showPatientAccount = new SimpleBooleanProperty(true);
-    private final BooleanProperty showUpdateAccount = new SimpleBooleanProperty(true);
+    private final BooleanProperty showUpdatePassword = new SimpleBooleanProperty(true);
     private final BooleanProperty showNotifications = new SimpleBooleanProperty(true);
     private final BooleanProperty showReports = new SimpleBooleanProperty(true);
-    private final BooleanProperty showSupplies = new SimpleBooleanProperty(true);
+    private final BooleanProperty showAccountRecovery = new SimpleBooleanProperty(true);
 
     // Getters and setters for each property
     public BooleanProperty showPrescriptionsProperty() { return showPrescriptions; }
@@ -20,8 +20,8 @@ public class DashboardModel {
     public BooleanProperty showInventoryProperty() { return showInventory; }
     public BooleanProperty showStaffAccountProperty() { return showStaffAccount; }
     public BooleanProperty showPatientAccountProperty() { return showPatientAccount; }
-    public BooleanProperty showUpdateAccountProperty() { return showUpdateAccount; }
+    public BooleanProperty showUpdatePasswordProperty() { return showUpdatePassword; }
     public BooleanProperty showNotificationsProperty() { return showNotifications; }
     public BooleanProperty showReportsProperty() { return showReports; }
-    public BooleanProperty showSuppliesProperty() { return showSupplies; }
+    public BooleanProperty showAccountRecoveryProperty() { return showAccountRecovery; }
 }

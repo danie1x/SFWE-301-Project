@@ -19,10 +19,10 @@ public class customizeDashboardController {
     @FXML private CheckBox inventoryCheckBox;
     @FXML private CheckBox staffAccountCheckBox;
     @FXML private CheckBox patientAccountCheckBox;
-    @FXML private CheckBox updateAccountInformationCheckBox;
+    @FXML private CheckBox updatePasswordCheckBox;
     @FXML private CheckBox notificationsCheckBox;
     @FXML private CheckBox reportsCheckBox;
-    @FXML private CheckBox suppliesCheckBox;
+    @FXML private CheckBox accountRecoveryCheckBox;
     @FXML private Button saveButton;
 
     private DashboardModel model;
@@ -39,10 +39,10 @@ public class customizeDashboardController {
         model.showInventoryProperty().bind(inventoryCheckBox.selectedProperty());
         model.showStaffAccountProperty().bind(staffAccountCheckBox.selectedProperty());
         model.showPatientAccountProperty().bind(patientAccountCheckBox.selectedProperty());
-        model.showUpdateAccountProperty().bind(updateAccountInformationCheckBox.selectedProperty());
+        model.showUpdatePasswordProperty().bind(updatePasswordCheckBox.selectedProperty());
         model.showNotificationsProperty().bind(notificationsCheckBox.selectedProperty());
         model.showReportsProperty().bind(reportsCheckBox.selectedProperty());
-        model.showSuppliesProperty().bind(suppliesCheckBox.selectedProperty());
+        model.showAccountRecoveryProperty().bind(accountRecoveryCheckBox.selectedProperty());
     }
 
     private void loadCheckBoxStates() {
@@ -54,10 +54,10 @@ public class customizeDashboardController {
             inventoryCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showInventory", "false")));
             staffAccountCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showStaffAccount", "false")));
             patientAccountCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showPatientAccount", "false")));
-            updateAccountInformationCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showUpdateAccount", "false")));
+            updatePasswordCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showUpdatePassword", "false")));
             notificationsCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showNotifications", "false")));
             reportsCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showReports", "false")));
-            suppliesCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showSupplies", "false")));
+            accountRecoveryCheckBox.setSelected(Boolean.parseBoolean(properties.getProperty("showAccountRecovery", "false")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,10 +71,10 @@ public class customizeDashboardController {
         properties.setProperty("showInventory", String.valueOf(inventoryCheckBox.isSelected()));
         properties.setProperty("showStaffAccount", String.valueOf(staffAccountCheckBox.isSelected()));
         properties.setProperty("showPatientAccount", String.valueOf(patientAccountCheckBox.isSelected()));
-        properties.setProperty("showUpdateAccount", String.valueOf(updateAccountInformationCheckBox.isSelected()));
+        properties.setProperty("showUpdatePassword", String.valueOf(updatePasswordCheckBox.isSelected()));
         properties.setProperty("showNotifications", String.valueOf(notificationsCheckBox.isSelected()));
         properties.setProperty("showReports", String.valueOf(reportsCheckBox.isSelected()));
-        properties.setProperty("showSupplies", String.valueOf(suppliesCheckBox.isSelected()));
+        properties.setProperty("showAccountRecovery", String.valueOf(accountRecoveryCheckBox.isSelected()));
 
         try (FileWriter writer = new FileWriter("checkboxes.properties")) {
             properties.store(writer, "Checkbox States");

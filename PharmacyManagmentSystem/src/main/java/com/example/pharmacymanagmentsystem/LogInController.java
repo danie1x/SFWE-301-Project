@@ -28,11 +28,21 @@ public class LogInController {
     private int failedAttempts = 0;
     private static final int MAX_FAILED_ATTEMPTS = 5;
 
+    private static final String MANAGER_USERNAME = "manager";
+    private static final String MANAGER_PASSWORD = "manager123";
+
     @FXML
     public void onLoginButtonClick() throws IOException {
         String enteredUsername = usernameField.getText();
         String enteredPassword = passwordField.getText();
         String correctPassword = "yourCorrectPassword"; // Replace with your actual password checking logic
+
+        if (enteredUsername.equals(MANAGER_USERNAME) && enteredPassword.equals(MANAGER_PASSWORD)) {
+            // Automatic login for pharmacy manager
+            failedAttempts = 0;
+            loadDashboard();
+            return;
+        }
 
         if (!enteredPassword.equals(correctPassword)) {
             failedAttempts++;
@@ -53,6 +63,17 @@ public class LogInController {
             }
         }
 
+        if ((failedAttempts >= MAX_FAILED_ATTEMPTS) && (enteredPassword.equals(correctPassword))) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Account Locked");
+            alert.setHeaderText(null);
+            alert.setContentText("This account has been locked due to failed sign in attempts. Please request the pharmacy manager to unlock this account to continue.");
+            alert.showAndWait();
+            return;
+        }
+
+
+
         // Reset failed attempts on successful login
         failedAttempts = 0;
 
@@ -62,14 +83,18 @@ public class LogInController {
         properties.setProperty("showInventory", "true");
         properties.setProperty("showStaffAccount", "true");
         properties.setProperty("showPatientAccount", "true");
-        properties.setProperty("showUpdateAccount", "true");
+        properties.setProperty("showUpdatePassword", "true");
         properties.setProperty("showNotifications", "true");
         properties.setProperty("showReports", "true");
-        properties.setProperty("showSupplies", "true");
+        properties.setProperty("showAccountRecovery", "true");
         try (FileWriter writer = new FileWriter("checkboxes.properties")) {
             properties.store(writer, "Checkbox States");
         }
 
+        loadDashboard();
+    }
+
+    private void loadDashboard() throws IOException {
         FXMLLoader dashboardLoader = new FXMLLoader(Main.class.getResource("dashboardGUI.fxml"));
         Parent dashboardRoot = dashboardLoader.load();
         dashboardGUIController dashboardController = dashboardLoader.getController();

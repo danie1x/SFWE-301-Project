@@ -13,10 +13,10 @@
       <CheckBox fx:id="inventoryCheckBox" layoutX="50.0" layoutY="160.0" mnemonicParsing="false" selected="true" text="Inventory" />
       <CheckBox fx:id="staffAccountCheckBox" layoutX="50.0" layoutY="130.0" mnemonicParsing="false" selected="true" text="Staff Account" />
       <CheckBox fx:id="patientAccountCheckBox" layoutX="50.0" layoutY="100.0" mnemonicParsing="false" selected="true" text="Patient Account" />
-      <CheckBox fx:id="updateAccountInformationCheckBox" layoutX="50.0" layoutY="70.0" mnemonicParsing="false" selected="true" text="Update Account Information" />
+      <CheckBox fx:id="updatePasswordCheckBox" layoutX="50.0" layoutY="70.0" mnemonicParsing="false" selected="true" text="Update Password" />
       <CheckBox fx:id="notificationsCheckBox" layoutX="50.0" layoutY="310.0" mnemonicParsing="false" selected="true" text="Notifications" />
       <CheckBox fx:id="reportsCheckBox" layoutX="50.0" layoutY="280.0" mnemonicParsing="false" selected="true" text="Reports" />
-      <CheckBox fx:id="suppliesCheckBox" layoutX="50.0" layoutY="250.0" mnemonicParsing="false" selected="true" text="Supplies" />
+      <CheckBox fx:id="accountRecoveryCheckBox" layoutX="50.0" layoutY="250.0" mnemonicParsing="false" selected="true" text="Account Recovery" />
       <Button fx:id="saveButton" layoutX="202.0" layoutY="347.0" mnemonicParsing="false" onAction="#onSaveButton" text="Save" />
    </children>
 </Pane>
