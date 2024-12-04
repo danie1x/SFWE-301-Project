@@ -137,8 +137,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onUpdatePasswordButtonClick() {
+    protected void onUpdatePasswordButtonClick() throws IOException {
         // Handle update password button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("updatePasswordGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) updatePasswordButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Update Password");
+        stage.show();
     }
 
     @FXML
