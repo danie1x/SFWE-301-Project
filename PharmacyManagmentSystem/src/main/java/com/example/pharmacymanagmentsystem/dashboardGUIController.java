@@ -187,8 +187,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onReportsButtonClick() {
+    protected void onReportsButtonClick() throws IOException {
         // Handle reports button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("reportsGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) reportsButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Reports");
+        stage.show();
     }
 
     @FXML
