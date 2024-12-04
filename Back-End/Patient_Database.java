@@ -36,6 +36,8 @@ public class Patient_Database {
             writer.append(patient.getEmail());
             writer.append(",");
             writer.append(patient.getInsuranceId());
+            writer.append(",");
+            writer.append(patient.getIsActive().toString());
             writer.append("\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,8 +86,7 @@ public class Patient_Database {
         } catch (IOException e) {
             e.printStackTrace();
     }
-
-    return result;
+    return result; // TO DO: Return a Patient object instead of a String array
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +99,8 @@ public class Patient_Database {
                                             "123 Arizona Ave.", 
                                             "555-555-5555", 
                                             "jDoe@catmail.com",
-                                            "00001");
+                                            "00001",
+                                            true);
 
         addPatient(dummyPatient);
     }
@@ -114,7 +116,8 @@ public class Patient_Database {
                              "address", 
                              "phoneNumber", 
                              "email", 
-                             "insuranceId" };
+                             "insuranceId",
+                             "isActive?"};
         File file = new File(filePath);
 
         try {
@@ -150,7 +153,6 @@ public class Patient_Database {
 
         // Try printing the Patient with name "Jane"
         String[] Patient = findPatientByName("Jane");
-        System.out.println(Patient[0]);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,6 +171,7 @@ public class Patient_Database {
         private String phoneNumber;
         private String email;
         private String insuranceId;
+        private Boolean isActive;
     
         // Constructor
         public Patient( String name, 
@@ -176,7 +179,8 @@ public class Patient_Database {
                         String address, 
                         String phoneNumber, 
                         String email, 
-                        String insuranceId) {
+                        String insuranceId,
+                        Boolean isActive) {
     
             this.name = name;
             this.dateOfBirth = dateOfBirth;
@@ -184,6 +188,7 @@ public class Patient_Database {
             this.phoneNumber = phoneNumber;
             this.email = email;
             this.insuranceId = insuranceId;
+            this.isActive = isActive;
         }
     
         // Default constructor
@@ -194,6 +199,7 @@ public class Patient_Database {
             this.phoneNumber = "";
             this.email = "";
             this.insuranceId = "";
+            this.isActive = true;
         }
     
         // Getters for each attribute
@@ -203,6 +209,7 @@ public class Patient_Database {
         public String getPhoneNumber() { return phoneNumber; }
         public String getEmail() { return email; }
         public String getInsuranceId() { return insuranceId; }
+        public Boolean getIsActive() { return isActive; }
     
         // Setters for each attribute
         public void setName(String name) { this.name = name;}
@@ -211,5 +218,6 @@ public class Patient_Database {
         public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber;}
         public void setEmail(String email) { this.email = email;}
         public void setInsuranceId(String insuranceId) { this.insuranceId = insuranceId;}
+        public void setIsActive(Boolean isActive) { this.isActive = isActive;}
     }
 }

@@ -77,7 +77,7 @@ public class Staff_Database {
             e.printStackTrace();
     }
 
-    return result;
+    return result; // TO DO: return a staff member object instead of a string array
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
