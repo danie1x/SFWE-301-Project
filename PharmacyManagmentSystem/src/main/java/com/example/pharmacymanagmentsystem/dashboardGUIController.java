@@ -117,8 +117,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onCheckoutButtonClick() {
+    protected void onCheckoutButtonClick() throws IOException {
         // Handle checkout button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("checkoutGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) checkoutButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Checkout");
+        stage.show();
     }
 
     @FXML
