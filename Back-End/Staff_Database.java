@@ -13,37 +13,29 @@ public class Staff_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Method for adding a Patient
-    public static void addPatient(Patient patient) {
-        String filePath = "patient_database.csv";
+    // Method for adding a Staff Member
+    public static void addStaff(Staff staff) {
+        String filePath = "staff_database.csv";
         File file = new File(filePath);
 
         // Check if the patient already exists
-        if (isPatientExists(patient.getName(), filePath)) {
-            System.out.println("Patient already exists: " + patient.getName());
+        if (isStaffExists(staff.getName(), filePath)) {
+            System.out.println("Staff member already exists: " + staff.getName());
             return;
         }
     
         try (FileWriter writer = new FileWriter(file, true)) {
-            writer.append(patient.getName());
+            writer.append(staff.getName());
             writer.append(",");
-            writer.append(patient.getDateOfBirth());
-            writer.append(",");
-            writer.append(patient.getAddress());
-            writer.append(",");
-            writer.append(patient.getPhoneNumber());
-            writer.append(",");
-            writer.append(patient.getEmail());
-            writer.append(",");
-            writer.append(patient.getInsuranceId());
+          
             writer.append("\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Helper method to check if a patient exists
-    private static boolean isPatientExists(String name, String filePath) {
+    // Helper method to check if a staff member exists
+    private static boolean isStaffExists(String name, String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -62,11 +54,11 @@ public class Staff_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Method for finding a Patient by name
-    public static String[] findPatientByName(String name) {
-        String filePath = "patient_database.csv";
+    public static String[] findStaffByName(String name) {
+        String filePath = "staff_database.csv";
         String[] result = null;
 
-        // Iterate through the file to find the Patient
+        // Iterate through the file to find the Staff Member
         try {
 
             // Read the file into memory
@@ -91,16 +83,11 @@ public class Staff_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Method for testing a dummy Patient
-    public static void testAddPatient() {
-        Patient dummyPatient = new Patient( "Jane", 
-                                            "01/01/2000",
-                                            "123 Arizona Ave.", 
-                                            "555-555-5555", 
-                                            "jDoe@catmail.com",
-                                            "00001");
+    // Method for testing a dummy Staff Member
+    public static void testAddStaff() {
+        Staff dummyStaff = new Staff( "Joe");
 
-        addPatient(dummyPatient);
+        addStaff(dummyStaff);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,13 +95,9 @@ public class Staff_Database {
 
     // Method for setting up the csv file
     public static void setupFile() {
-        String filePath = "patient_database.csv";
-        String[] headers = { "name", 
-                             "dateOfBirth",
-                             "address", 
-                             "phoneNumber", 
-                             "email", 
-                             "insuranceId" };
+        String filePath = "staff_database.csv";
+        String[] headers = { "name"
+    };
         File file = new File(filePath);
 
         try {
@@ -145,12 +128,12 @@ public class Staff_Database {
         // Setup the file
         setupFile();
 
-        // Add a Patient
-        testAddPatient();
+        // Add a Staff Member
+        testAddStaff();
 
-        // Try printing the Patient with name "Jane"
-        String[] Patient = findPatientByName("Jane");
-        System.out.println(Patient[0]);
+        // Try printing the Staff Member with name "Joe"
+        String[] Staff = findStaffByName("Joe");
+        System.out.println(Staff[0]);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,55 +144,25 @@ public class Staff_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static class Patient {
-        // Attributes for the patient
+    public static class Staff {
+        // Attributes for the staff member
         private String name;
-        private String dateOfBirth;
-        private String address;
-        private String phoneNumber;
-        private String email;
-        private String insuranceId;
     
         // Constructor
-        public Patient( String name, 
-                        String dateOfBirth, 
-                        String address, 
-                        String phoneNumber, 
-                        String email, 
-                        String insuranceId) {
+        public Staff( String name) {
     
             this.name = name;
-            this.dateOfBirth = dateOfBirth;
-            this.address = address;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
-            this.insuranceId = insuranceId;
         }
     
         // Default constructor
-        public Patient() {
+        public Staff() {
             this.name = "";
-            this.dateOfBirth = "";
-            this.address = "";
-            this.phoneNumber = "";
-            this.email = "";
-            this.insuranceId = "";
         }
     
         // Getters for each attribute
         public String getName() { return name; }
-        public String getDateOfBirth() { return dateOfBirth; }
-        public String getAddress() { return address; }
-        public String getPhoneNumber() { return phoneNumber; }
-        public String getEmail() { return email; }
-        public String getInsuranceId() { return insuranceId; }
     
         // Setters for each attribute
         public void setName(String name) { this.name = name;}
-        public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth;}
-        public void setAddress(String address) { this.address = address;}
-        public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber;}
-        public void setEmail(String email) { this.email = email;}
-        public void setInsuranceId(String insuranceId) { this.insuranceId = insuranceId;}
-    }
+}
 }
