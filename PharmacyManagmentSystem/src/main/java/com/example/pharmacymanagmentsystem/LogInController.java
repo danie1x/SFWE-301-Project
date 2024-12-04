@@ -83,10 +83,10 @@ public class LogInController {
         properties.setProperty("showInventory", "true");
         properties.setProperty("showStaffAccount", "true");
         properties.setProperty("showPatientAccount", "true");
-        properties.setProperty("showUpdateAccount", "true");
+        properties.setProperty("showUpdatePassword", "true");
         properties.setProperty("showNotifications", "true");
         properties.setProperty("showReports", "true");
-        properties.setProperty("showSupplies", "true");
+        properties.setProperty("showAccountRecovery", "true");
         try (FileWriter writer = new FileWriter("checkboxes.properties")) {
             properties.store(writer, "Checkbox States");
         }
