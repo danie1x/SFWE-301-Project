@@ -192,7 +192,15 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onAccountRecoveryButtonClick() {
+    protected void onAccountRecoveryButtonClick() throws IOException {
         // Handle account recovery button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("accountRecoveryGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) accountRecoveryButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Account Recovery");
+        stage.show();
     }
 }
