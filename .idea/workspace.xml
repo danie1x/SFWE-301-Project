@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb02d9-ff73-4ab3-8529-19942d33844e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/createPatientAccountGUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/LoginGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/MainMenuGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PharmacyManagmentSystem/checkboxes.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyManagmentSystem/checkboxes.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/createPatientAccountGUIController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +22,12 @@
     &quot;assignee&quot;: &quot;danie1x&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/danie1x/SFWE-301-Project.git&quot;,
-    &quot;accountId&quot;: &quot;3b8cdf12-9355-4fdb-9ea9-6c42461fcd6b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/danie1x/SFWE-301-Project.git",
+    "accountId": "29b0bf86-ef6f-4afe-8bc7-ca2437381a50"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -39,28 +36,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/lilianasuarez/Documents/GitHub/SFWE-301-Project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.23625&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Patient_Database.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/lilianasuarez/Documents/GitHub/SFWE-301-Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.23625",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -89,6 +87,7 @@
       <workItem from="1732406448478" duration="28000" />
       <workItem from="1733272032611" duration="145000" />
       <workItem from="1733272189479" duration="143000" />
+      <workItem from="1733277437164" duration="684000" />
     </task>
     <servers />
   </component>
