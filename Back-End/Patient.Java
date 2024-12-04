@@ -1,4 +1,6 @@
-package BackEnd;
+package Back-End;
+import java.util.List;
+
 
 public class Patient {
     // Attributes for the patient
