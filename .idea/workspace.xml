@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3bb02d9-ff73-4ab3-8529-19942d33844e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/createPatientAccountGUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/LoginGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/MainMenuGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyManagmentSystem/src/main/java/com/example/pharmacymanagmentsystem/LogInController.java" afterDir="false" />
-    </list>
+    <list default="true" id="f3bb02d9-ff73-4ab3-8529-19942d33844e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +22,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/danie1x/SFWE-301-Project.git&quot;,
-    &quot;accountId&quot;: &quot;3b8cdf12-9355-4fdb-9ea9-6c42461fcd6b&quot;
+    &quot;accountId&quot;: &quot;29b0bf86-ef6f-4afe-8bc7-ca2437381a50&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -49,7 +43,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/lilianasuarez/Documents/GitHub/SFWE-301-Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/danielgallardo/Library/CloudStorage/GoogleDrive-danielgallardo@arizona.edu/My Drive/2024-2025/SFWE 301/SFWE-301-Project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -87,8 +81,6 @@
       <workItem from="1732230187057" duration="144000" />
       <workItem from="1732230332526" duration="1806000" />
       <workItem from="1732406448478" duration="28000" />
-      <workItem from="1733272032611" duration="145000" />
-      <workItem from="1733272189479" duration="143000" />
     </task>
     <servers />
   </component>

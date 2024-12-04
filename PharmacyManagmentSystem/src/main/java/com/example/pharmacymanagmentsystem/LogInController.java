@@ -28,20 +28,11 @@ public class LogInController {
     private int failedAttempts = 0;
     private static final int MAX_FAILED_ATTEMPTS = 5;
 
-    private static final String MANAGER_USERNAME = "manager";
-    private static final String MANAGER_PASSWORD = "manager123";
-
     @FXML
     public void onLoginButtonClick() throws IOException {
         String enteredUsername = usernameField.getText();
         String enteredPassword = passwordField.getText();
         String correctPassword = "yourCorrectPassword"; // Replace with your actual password checking logic
-
-        if (enteredUsername.equals(MANAGER_USERNAME) && enteredPassword.equals(MANAGER_PASSWORD)) {
-            // Automatic login for pharmacy manager
-            loadDashboard();
-            return;
-        }
 
         if (!enteredPassword.equals(correctPassword)) {
             failedAttempts++;
@@ -79,10 +70,6 @@ public class LogInController {
             properties.store(writer, "Checkbox States");
         }
 
-        loadDashboard();
-    }
-
-    private void loadDashboard() throws IOException {
         FXMLLoader dashboardLoader = new FXMLLoader(Main.class.getResource("dashboardGUI.fxml"));
         Parent dashboardRoot = dashboardLoader.load();
         dashboardGUIController dashboardController = dashboardLoader.getController();
