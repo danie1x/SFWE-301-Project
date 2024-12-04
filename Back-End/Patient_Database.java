@@ -212,12 +212,54 @@ public class Patient_Database {
         public Boolean getIsActive() { return isActive; }
     
         // Setters for each attribute
-        public void setName(String name) { this.name = name;}
-        public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth;}
-        public void setAddress(String address) { this.address = address;}
-        public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber;}
-        public void setEmail(String email) { this.email = email;}
-        public void setInsuranceId(String insuranceId) { this.insuranceId = insuranceId;}
-        public void setIsActive(Boolean isActive) { this.isActive = isActive;}
+        public void setName(String name, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.name = name;
+        }
+        public void setDateOfBirth(String dateOfBirth, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.dateOfBirth = dateOfBirth;
+        }
+        public void setAddress(String address, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.address = address;
+        }
+        public void setPhoneNumber(String phoneNumber, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.phoneNumber = phoneNumber;
+        }
+        public void setEmail(String email, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.email = email;
+        }
+        public void setInsuranceId(String insuranceId, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.insuranceId = insuranceId;
+        }
+        public void setIsActive(Boolean isActive, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.isActive = isActive;
+        }
     }
 }

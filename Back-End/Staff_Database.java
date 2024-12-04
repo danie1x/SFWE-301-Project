@@ -19,15 +19,21 @@ public class Staff_Database {
         File file = new File(filePath);
 
         // Check if the staff member already exists
-        if (isStaffExists(staff.getName(), filePath)) {
-            System.out.println("Staff member already exists: " + staff.getName());
+        if (isStaffExists(staff.getFirstName(), filePath)) {
+            System.out.println("Staff member already exists: " + staff.getFirstName());
             return;
         }
     
         try (FileWriter writer = new FileWriter(file, true)) {
-            writer.append(staff.getName());
+            writer.append(staff.getFirstName());
             writer.append(",");
-          
+            writer.append(staff.getLastName());
+            writer.append(",");
+            writer.append(staff.getEmail());
+            writer.append(",");
+            writer.append(staff.getUsername());
+            writer.append(",");
+            writer.append(staff.getPassword());
             writer.append("\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,7 +91,13 @@ public class Staff_Database {
 
     // Method for testing a dummy Staff Member
     public static void testAddStaff() {
-        Staff dummyStaff = new Staff( "Joe");
+        Staff dummyStaff = new Staff("Joe", 
+                                     "Mama", 
+                                     "jMama@catmail.com", 
+                                     "jMama", 
+                                     "password123",
+                                     true,
+                                     false);
 
         addStaff(dummyStaff);
     }
@@ -96,8 +108,13 @@ public class Staff_Database {
     // Method for setting up the csv file
     public static void setupFile() {
         String filePath = "staff_database.csv";
-        String[] headers = { "name"
-    };
+        String[] headers = { "firstName",
+                             "lastName",
+                             "email",
+                             "username",
+                             "password",
+                             "isActive",
+                             "isAdmin" };
         File file = new File(filePath);
 
         try {
@@ -146,23 +163,107 @@ public class Staff_Database {
 
     public static class Staff {
         // Attributes for the staff member
-        private String name;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String username;
+        private String password; // TO DO: Hash this
+        private Boolean isActive;
+        private Boolean isAdmin = false;
     
         // Constructor
-        public Staff( String name) {
+        public Staff( String firstName,
+                      String lastName,
+                      String email,
+                      String username,
+                      String password,
+                      Boolean isActive,
+                      Boolean isAdmin) {
     
-            this.name = name;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.username = username;
+            this.password = password;
+            this.isActive = isActive;
+            this.isAdmin = isAdmin;
         }
     
         // Default constructor
         public Staff() {
-            this.name = "";
+            this.firstName = "";
+            this.lastName = "";
+            this.email = "";
+            this.username = "";
+            this.password = "";
+            this.isActive = true;
+            this.isAdmin = false;
         }
     
         // Getters for each attribute
-        public String getName() { return name; }
+        public String getFirstName() { return firstName; }
+        public String getLastName() { return lastName; }
+        public String getEmail() { return email; }
+        public String getUsername() { return username; }
+        public String getPassword() { return password; } // TO DO: ???
+        public Boolean getIsActive() { return isActive; }
+        public Boolean getIsAdmin() { return isAdmin; }
     
-        // Setters for each attribute
-        public void setName(String name) { this.name = name;}
-}
+        // Setters for each attribute with permission check
+        public void setFirstName(String firstName, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.firstName = firstName;
+        }
+
+        public void setLastName(String lastName, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.lastName = lastName;
+        }
+
+        public void setEmail(String email, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.email = email;
+        }
+
+        public void setUsername(String username, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.username = username;
+        }
+
+        public void setPassword(String password, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.password = password;
+        }
+
+        public void setIsActive(Boolean isActive, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.isActive = isActive;
+        }
+
+        public void setIsAdmin(Boolean isAdmin, Boolean permission) { 
+            if (!permission) {
+                System.out.println("You do not have permission to change this attribute.");
+                return;
+            }
+            this.isAdmin = isAdmin;
+        }
+    }
 }
