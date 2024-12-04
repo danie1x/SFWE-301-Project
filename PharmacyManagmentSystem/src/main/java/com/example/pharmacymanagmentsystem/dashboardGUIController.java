@@ -122,8 +122,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onInventoryButtonClick() {
+    protected void onInventoryButtonClick() throws IOException {
         // Handle inventory button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("inventoryGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) inventoryButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Inventory");
+        stage.show();
     }
 
     @FXML
