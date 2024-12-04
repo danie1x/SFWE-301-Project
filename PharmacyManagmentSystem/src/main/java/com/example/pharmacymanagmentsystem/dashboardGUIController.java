@@ -105,8 +105,15 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onPrescriptionsButtonClick() {
-        // Handle prescriptions button click
+    protected void onPrescriptionsButtonClick() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("prescriptionGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) prescriptionsButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Prescriptions");
+        stage.show();
     }
 
     @FXML
@@ -131,7 +138,7 @@ public class dashboardGUIController {
 
     @FXML
     protected void onUpdatePasswordButtonClick() {
-        // Handle update account button click
+        // Handle update password button click
     }
 
     @FXML
@@ -146,6 +153,6 @@ public class dashboardGUIController {
 
     @FXML
     protected void onAccountRecoveryButtonClick() {
-        // Handle supplies button click
+        // Handle account recovery button click
     }
 }
