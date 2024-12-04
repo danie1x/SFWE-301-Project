@@ -127,8 +127,16 @@ public class dashboardGUIController {
     }
 
     @FXML
-    protected void onStaffAccountButtonClick() {
+    protected void onStaffAccountButtonClick() throws IOException {
         // Handle staff account button click
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("createStaffAccountGUI.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 778, 487);
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) staffAccountButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Staff Account");
+        stage.show();
     }
 
     @FXML
