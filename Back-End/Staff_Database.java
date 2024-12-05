@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.FileReader;
 
 public class Staff_Database {
+    private static final String FILE_PATH = "Back-End/staff_database.csv";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// 
@@ -15,7 +16,7 @@ public class Staff_Database {
 
     // Method for adding a Staff Member
     public static void addStaff(Staff staff) {
-        String filePath = "staff_database.csv";
+        String filePath = FILE_PATH;
         File file = new File(filePath);
 
         // Check if the staff member already exists
@@ -34,6 +35,10 @@ public class Staff_Database {
             writer.append(staff.getUsername());
             writer.append(",");
             writer.append(staff.getPassword());
+            writer.append(",");
+            writer.append(staff.getIsActive().toString());
+            writer.append(",");
+            writer.append(staff.getIsAdmin().toString());
             writer.append("\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,47 +64,133 @@ public class Staff_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Method for finding a staff member by name
-    public static String[] findStaffByName(String name) {
-        String filePath = "staff_database.csv";
-        String[] result = null;
+    // Method for modifying a Staff Member
+    public static void modifyStaff(String name, Staff staff) {
+        String filePath = FILE_PATH;
+        String tempFilePath = "Back-End/temp_staff_database.csv";
+        File file = new File(filePath);
+        File tempFile = new File(tempFilePath);
 
-        // Iterate through the file to find the Staff Member
-        try {
+        // Check if the staff member exists
+        if (!isStaffExists(name, filePath)) {
+            System.out.println("Staff member does not exist: " + name);
+            return;
+        }
 
-            // Read the file into memory
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] values = line.split(",");
-                    // Check if this is the staff member to return
-                    if (values[0].equals(name)) {
-                        result = values;
-                        break; // Exit the loop once the staff member is found
-                    }
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+             FileWriter writer = new FileWriter(tempFilePath, true)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                if (fields.length > 0 && fields[0].equals(name)) {
+                    writer.append(staff.getFirstName());
+                    writer.append(",");
+                    writer.append(staff.getLastName());
+                    writer.append(",");
+                    writer.append(staff.getEmail());
+                    writer.append(",");
+                    writer.append(staff.getUsername());
+                    writer.append(",");
+                    writer.append(staff.getPassword());
+                    writer.append(",");
+                    writer.append(staff.getIsActive().toString());
+                    writer.append(",");
+                    writer.append(staff.getIsAdmin().toString());
+                    writer.append("\n");
+                } else {
+                    writer.append(line);
+                    writer.append("\n");
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        // Delete the original file
+        file.delete();
+
+        // Rename the temp file to the original file
+        tempFile.renameTo(file);
     }
 
-    return result; // TO DO: return a staff member object instead of a string array
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Method for deleting a staff member
+    public static void deleteStaff(String name) {
+        String filePath = FILE_PATH;
+        String tempFilePath = "Back-End/temp_staff_database.csv";
+        File file = new File(filePath);
+        File tempFile = new File(tempFilePath);
+
+        // Check if the staff member exists
+        if (!isStaffExists(name, filePath)) {
+            System.out.println("Staff member does not exist: " + name);
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+             FileWriter writer = new FileWriter(tempFilePath, true)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                if (fields.length > 0 && fields[0].equals(name)) {
+                    continue;
+                } else {
+                    writer.append(line);
+                    writer.append("\n");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Delete the original file
+        file.delete();
+
+        // Rename the temp file to the original file
+        tempFile.renameTo(file);
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Method for finding a staff member by name
+    public static Staff findStaffByName(String name) {
+        String filePath = FILE_PATH;
+        Staff result = null;
+
+        // Iterate through the file to find the Staff Member
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+                // Check if this is the staff member to return
+                if (values[0].equals(name)) {
+                    result = new Staff(values[0], values[1], values[2], values[3], values[4], Boolean.parseBoolean(values[5]), Boolean.parseBoolean(values[6]));
+                    break; // Exit the loop once the staff member is found
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Method for testing a dummy Staff Member
     public static void testAddStaff() {
-        Staff dummyStaff = new Staff("Joe", 
-                                     "Mama", 
-                                     "jMama@catmail.com", 
-                                     "jMama", 
+        Staff plainJane = new Staff("Jane", 
+                                     "Doe", 
+                                     "jDoe@catmail.com", 
+                                     "jDoe", 
                                      "password123",
                                      true,
                                      false);
 
-        addStaff(dummyStaff);
+        addStaff(plainJane);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -107,7 +198,7 @@ public class Staff_Database {
 
     // Method for setting up the csv file
     public static void setupFile() {
-        String filePath = "back-end/patient_database.csv";
+        String filePath = FILE_PATH;
         String[] headers = { "firstName",
                              "lastName",
                              "email",
@@ -145,12 +236,92 @@ public class Staff_Database {
         // Setup the file
         setupFile();
 
+        // BACK-END TEST 2
+        /*
         // Add a Staff Member
-        testAddStaff();
+        String testName = "Jane";
 
-        // Try printing the Staff Member with name "Joe"
-        String[] Staff = findStaffByName("Joe");
-        System.out.println(Staff[0]);
+        // Check if the staff member is in the database
+        Staff foundStaff = findStaffByName(testName);
+        if (foundStaff != null) {
+            System.out.println("Database contains " + testName + " record. Status: " + (foundStaff.getIsActive() ? "Active" : "Inactive"));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+                
+        Staff plainJane = new Staff("Jane", 
+                                    "Doe",
+                                    "jDoe@catmail.com",
+                                    "jane_doe",
+                                    "password123",
+                                    true,
+                                    false);
+        addStaff(plainJane);
+
+        // Update the foundStaff variable after adding the staff member
+        foundStaff = findStaffByName(testName);
+        if (foundStaff != null) {
+            System.out.println("Database contains " + testName + " record. Status: " + (foundStaff.getIsActive() ? "Active" : "Inactive"));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+
+        // Set the Staff Member as inactive
+        plainJane.setIsActive(false, true);
+        modifyStaff(testName, plainJane);
+
+        // Verify the Staff Member is set as inactive
+        foundStaff = findStaffByName(testName);
+        if (foundStaff != null) {
+            System.out.println("Database contains " + testName + " record. Status: " + (foundStaff.getIsActive() ? "Active" : "Inactive"));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+        // END BACK-END TEST 2
+        */
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        // BACK-END TEST 4
+        /*
+        // Add a Patient
+        String testName = "Jane";
+        Staff plainJane = new Staff("Jane", 
+                                     "Doe", 
+                                     "jDoe@catmail.com", 
+                                     "jDoe", 
+                                     "password123",
+                                     true,
+                                     false);
+        addStaff(plainJane);
+
+        // Check if the patient is in the database
+        Staff foundStaff = findStaffByName(testName);
+        if (foundStaff != null) {
+            System.out.println("Database contains " + testName + " record. Last name: " + (foundStaff.getLastName()));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+
+        // Attempt to change the last name
+        plainJane.setLastName("Fonda", false);
+        modifyStaff(testName, plainJane);
+        foundStaff = findStaffByName(testName);
+
+        // Reattempt to change the last name
+        plainJane.setLastName("Fonda", true);
+        modifyStaff(testName, plainJane);
+        foundStaff = findStaffByName(testName);
+        if (foundStaff != null) {
+            System.out.println("Database contains " + testName + " record. Last Name: " + (foundStaff.getLastName()));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+        // END BACK-END TEST 4
+        */
+        
+
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
