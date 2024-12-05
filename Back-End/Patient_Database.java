@@ -229,30 +229,50 @@ public class Patient_Database {
         // Setup the file
         setupFile();
 
+        // BACK-END TEST 1
+        /*
         // Add a Patient
-        testAddPatient();
-        Patient PlainJane0 = findPatientByName("Jane");
-        System.out.println("Name: " + PlainJane0.getAddress());
-        PlainJane0 = null;
+        String testName = "Jane";
 
-        // Instantiate new Patient "Jane"
-        Patient PlainJane = new Patient("Jane", 
-                                        "20/04/1990",
-                                        "421 Sun St.", 
-                                        "555-555-0001", 
-                                        "jDoe@catmail.com",
-                                        "00001",
-                                        true);
+        // Check if the patient is in the database
+        Patient foundPatient = findPatientByName(testName);
+        if (foundPatient != null) {
+            System.out.println("Database contains " + testName + " record. Status: " + (foundPatient.getIsActive() ? "Active" : "Inactive"));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+                
+        Patient plainJane = new Patient("Jane", 
+                                         "01/01/1980",
+                                         "123 Main St.", 
+                                         "555-555-1234", 
+                                         "jDoe@catmail.com",
+                                         "12345",
+                                         true);
+        addPatient(plainJane);
 
-        // Try modifying the Patient with name "Jane"
-        modifyPatient("Jane", PlainJane);
-        // Delete plane jane object
-        PlainJane = null;
+        // Update the foundPatient variable after adding the patient
+        foundPatient = findPatientByName(testName);
+        if (foundPatient != null) {
+            System.out.println("Database contains " + testName + " record. Status: " + (foundPatient.getIsActive() ? "Active" : "Inactive"));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
 
-        // Remake PlainJane object
-        PlainJane = findPatientByName("Jane");
-        System.out.println("Name: " + PlainJane.getAddress());
+        // Set the Patient as inactive
+        plainJane.setIsActive(false, true);
+        modifyPatient(testName, plainJane);
 
+        // Verify the Patient is set as inactive
+        foundPatient = findPatientByName(testName);
+        if (foundPatient != null) {
+            System.out.println("Database contains " + testName + " record. Status: " + (foundPatient.getIsActive() ? "Active" : "Inactive"));
+        } else {
+            System.out.println("Database does not contain " + testName + " record");
+        }
+        // END BACK-END TEST 1
+        */
+        
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
