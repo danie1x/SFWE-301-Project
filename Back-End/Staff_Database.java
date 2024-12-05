@@ -107,7 +107,7 @@ public class Staff_Database {
 
     // Method for setting up the csv file
     public static void setupFile() {
-        String filePath = "staff_database.csv";
+        String filePath = "back-end/patient_database.csv";
         String[] headers = { "firstName",
                              "lastName",
                              "email",

@@ -1,0 +1,2 @@
+name,dateOfBirth,address,phoneNumber,email,insuranceId,isActive?
+Jane,20/04/1990,421 Sun St.,555-555-0001,jDoe@catmail.com,00001,true

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.FileReader;
 
 public class Patient_Database {
+    private static final String FILE_PATH = "Back-End/patient_database.csv";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// 
@@ -15,7 +16,7 @@ public class Patient_Database {
 
     // Method for adding a Patient
     public static void addPatient(Patient patient) {
-        String filePath = "patient_database.csv";
+        String filePath = FILE_PATH;
         File file = new File(filePath);
 
         // Check if the patient already exists
@@ -63,38 +64,118 @@ public class Patient_Database {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Method for finding a Patient by name
-    public static String[] findPatientByName(String name) {
-        String filePath = "patient_database.csv";
-        String[] result = null;
+    // Method for modifying a Patient
+    public static void modifyPatient(String name, Patient newPatient) {
+        String filePath = FILE_PATH;
+        String tempFilePath = "temp_patient_database.csv";
+        File file = new File(filePath);
+        File tempFile = new File(tempFilePath);
 
-        // Iterate through the file to find the Patient
-        try {
+        // Check if the patient exists
+        if (!isPatientExists(name, filePath)) {
+            System.out.println("Patient does not exist: " + name);
+            return;
+        }
 
-            // Read the file into memory
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] values = line.split(",");
-                    // Check if this is the Patient to return
-                    if (values[0].equals(name)) {
-                        result = values;
-                        break; // Exit the loop once the Patient is found
-                    }
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+             FileWriter writer = new FileWriter(tempFilePath, true)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                if (fields.length > 0 && fields[0].equals(name)) {
+                    writer.append(newPatient.getName());
+                    writer.append(",");
+                    writer.append(newPatient.getDateOfBirth());
+                    writer.append(",");
+                    writer.append(newPatient.getAddress());
+                    writer.append(",");
+                    writer.append(newPatient.getPhoneNumber());
+                    writer.append(",");
+                    writer.append(newPatient.getEmail());
+                    writer.append(",");
+                    writer.append(newPatient.getInsuranceId());
+                    writer.append(",");
+                    writer.append(newPatient.getIsActive().toString());
+                    writer.append("\n");
+                } else {
+                    writer.append(line);
+                    writer.append("\n");
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        // Delete the original file
+        file.delete();
+
+        // Rename the temp file to the original file
+        tempFile.renameTo(file);
     }
-    return result; // TO DO: Return a Patient object instead of a String array
-}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Method for deleting a Patient
+    public static void deletePatient(String name) {
+        String filePath = FILE_PATH;
+        String tempFilePath = "temp_patient_database.csv";
+        File file = new File(filePath);
+        File tempFile = new File(tempFilePath);
+
+        // Check if the patient exists
+        if (!isPatientExists(name, filePath)) {
+            System.out.println("Patient does not exist: " + name);
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+             FileWriter writer = new FileWriter(tempFilePath, true)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                if (fields.length > 0 && fields[0].equals(name)) {
+                    continue;
+                }
+                writer.append(line);
+                writer.append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // Method for finding a Patient by name
+    public static Patient findPatientByName(String name) {
+        String filePath = FILE_PATH;
+        Patient result = null;
+
+        // Iterate through the file to find the Patient
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+                // Check if this is the Patient to return
+                if (values[0].equals(name)) {
+                    result = new Patient(values[0], values[1], values[2], values[3], values[4], values[5], Boolean.parseBoolean(values[6]));
+                    break; // Exit the loop once the Patient is found
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result; 
+    }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Method for testing a dummy Patient
     public static void testAddPatient() {
-        Patient dummyPatient = new Patient( "Jane", 
+        Patient planeJane = new Patient( "Jane", 
                                             "01/01/2000",
                                             "123 Arizona Ave.", 
                                             "555-555-5555", 
@@ -102,7 +183,7 @@ public class Patient_Database {
                                             "00001",
                                             true);
 
-        addPatient(dummyPatient);
+        addPatient(planeJane);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,7 +191,7 @@ public class Patient_Database {
 
     // Method for setting up the csv file
     public static void setupFile() {
-        String filePath = "patient_database.csv";
+        String filePath = FILE_PATH;
         String[] headers = { "name", 
                              "dateOfBirth",
                              "address", 
@@ -150,9 +231,28 @@ public class Patient_Database {
 
         // Add a Patient
         testAddPatient();
+        Patient PlainJane0 = findPatientByName("Jane");
+        System.out.println("Name: " + PlainJane0.getAddress());
+        PlainJane0 = null;
 
-        // Try printing the Patient with name "Jane"
-        String[] Patient = findPatientByName("Jane");
+        // Instantiate new Patient "Jane"
+        Patient PlainJane = new Patient("Jane", 
+                                        "20/04/1990",
+                                        "421 Sun St.", 
+                                        "555-555-0001", 
+                                        "jDoe@catmail.com",
+                                        "00001",
+                                        true);
+
+        // Try modifying the Patient with name "Jane"
+        modifyPatient("Jane", PlainJane);
+        // Delete plane jane object
+        PlainJane = null;
+
+        // Remake PlainJane object
+        PlainJane = findPatientByName("Jane");
+        System.out.println("Name: " + PlainJane.getAddress());
+
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

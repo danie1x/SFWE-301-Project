@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.example.pharmacymanagmentsystem/com.example.pharmacymanagmentsystem.Main",
+            "projectName": "PharmacyManagmentSystem"
+        },
+        {
+            "type": "java",
+            "name": "DrugInventory",
+            "request": "launch",
+            "mainClass": "DrugInventory",
+            "projectName": "SFWE-301-Project_13a95c5a"
+        },
+        {
+            "type": "java",
+            "name": "Patient_Database",
+            "request": "launch",
+            "mainClass": "Patient_Database",
+            "projectName": "SFWE-301-Project_13a95c5a"
+        },
+        {
+            "type": "java",
+            "name": "Staff_Database",
+            "request": "launch",
+            "mainClass": "Staff_Database",
+            "projectName": "SFWE-301-Project_13a95c5a"
+        },
+        {
+            "type": "java",
+            "name": "Working_Database_demo",
+            "request": "launch",
+            "mainClass": "Working_Database_demo",
+            "projectName": "SFWE-301-Project_13a95c5a"
+        }
+    ]
+}
